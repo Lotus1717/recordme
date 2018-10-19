@@ -1,0 +1,21 @@
+.recordme-mark-text{
+  background-color: #dcfcb9;
+}
+.recordme-close-btn{
+  display: inline-block;
+  width: 0;
+  /* height: 24px; */
+  position: relative;
+  left: -6px;
+  top: -8px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #63c594;
+  cursor: pointer;
+}
+.recordme-close-btn:hover{
+  color: #276848;
+}
+.recordme-close-btn:active{
+  color: #19422e;
+}

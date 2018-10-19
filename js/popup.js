@@ -6,7 +6,7 @@
  * 功能：点击浏览器插件图标，可以查看新建的笔记(√)，打标记，或删除网页记录
  * 
  * @author Qiutm 2018-10-10 09:32:33
- * @version 1.0.1
+ * @version 1.0.0
  */
 import {createRecord} from './model.js'
 // 记录列表
@@ -21,11 +21,12 @@ console.log('popup script')
 
 chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
   chrome.tabs.sendMessage(tabs[0].id, {cmd: 'query-records'}, response => {
+    console.log(response)
     if(response.recordList.length > 0){
       recordListRender(response)
       createRecord(response)
     }     
-  });
+  })
 })
 
 function recordListRender (data) {

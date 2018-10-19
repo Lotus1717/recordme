@@ -1,7 +1,7 @@
 /**
  * content-script
  * 
- * 概述：给网页打标记，做记录
+ * 概述：网页文本做标注
  * 
  * 功能：
  * 1. 选中文本打标记，或者删除标记。(√)
@@ -11,14 +11,10 @@
  * 5.保存记录
  * 
  * @author Qiutm 2018-10-10 09:32:33
- * @version 1.0.1
+ * @version 1.0.0
  */
 
 (function () {
-  // 当前的页面url
-  const PAGEURL = window.location.href
-  // 当前网页标题
-  const PAGETITLE = document.title
   // 文本节点集合
   let textNodeList = []
   // 选中的文字
@@ -95,18 +91,6 @@
       sendResponse(response)
     }
   })
-
-  function sendRecordsToPopUpScript () {
-    let message = {
-      cmd: 'record-list', 
-      url: PAGEURL, 
-      title: PAGETITLE,
-      recordList: recordList
-    }
-    chrome.runtime.sendMessage(message, response => {
-      console.log(PAGETITLE)
-    })
-  }
 
   /** 
    * 从文档理获取文本节点 

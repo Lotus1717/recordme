@@ -1,13 +1,30 @@
 console.log('model-script')
 
+let domain = 'http://127.0.0.1:8007/'
 
-const createRecord = (data) => {
-  let url = 'http://127.0.0.1:8007/recordServer/createRecord'
-  axios.post(url, data).then(res => {
-    console.log(res)
+const updateRecordList = (data) => {
+  let url = domain + 'RecordServer/updateRecord'
+  return axios.post(url, data).then(res => {
+    return res.data
+  })
+}
+
+const deleteMark = (data) => {
+  let url = domain + 'RecordServer/deleteMark'
+  return axios.post(url, data).then(res => {
+    return res.data
+  })
+}
+
+const login = (data) => {
+  let url = domain + 'UserServer/login'
+  return axios.post(url, data).then(res => {
+    return res.data
   })
 }
 
 export {
-  createRecord
+  updateRecordList,
+  deleteMark,
+  login
 }

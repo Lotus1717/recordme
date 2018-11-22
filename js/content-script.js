@@ -19,7 +19,7 @@
   let textNodeList = []
   // 选中的文字
   let selectedText = ''
-  // 记录集合
+  // 记录集合 [{markText: '', record: ''}]
   let recordList = []
   // 文本找到标识
   let findFlag = false
@@ -44,7 +44,7 @@
       selectedText = window.getSelection().toString()
       recordList.push({
         markText: selectedText,  // 标注的文字
-        record: null  // 文字记录
+        record: ''  // 文字记录
       })
       fetchTextNodeFromDocument(document.body, 'add')
       findFlag = false
@@ -68,7 +68,7 @@
     }
   })
 
-  // 监听后台消息
+  // 监听后台消息(快捷键记录文本)
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.cmd === 'recordme') {
       selectedText = request.value
@@ -81,6 +81,7 @@
     }
   })
 
+  // 监听popup页面消息（发送当前页记录）
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.cmd === 'query-records') {
       let response = {

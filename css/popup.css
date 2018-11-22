@@ -2,24 +2,55 @@ html, body{
   margin: 0;
   padding: 0;    
 }
+html{
+  font-size: 14px;
+}
 body{
   width: 400px;
-  height: 500px;    
+  height: 570px;    
 }
 a{
   text-decoration: none;
   color: white;
 }
+.popup-container{
+  position: relative;
+  height: 100%;
+}
 .header{
   margin: 0;
+  padding: 0 12px;
   height: 40px;
   line-height: 40px; 
-  text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   background-color: #4dc071;
 }
+.header-title{
+  text-shadow: 2px 0px 4px #246327;
+}
+.user-name{
+  margin-left: 2px;
+  font-size: 12px;
+  color: #e4fde3; 
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.save-record{
+  float: right;
+  margin-top: 10px;
+  width: 20px;
+  cursor: default;
+  filter: opacity(0.6);
+}
+.save-record:hover{
+  filter: opacity(1);
+  box-shadow: 0 0 8px rgba(63, 138, 66, 0.5);
+}
 .popup-content{
+  display: none;
   padding: 20px;
   height: 460px;
   overflow: auto;
@@ -34,22 +65,40 @@ a{
 }
 .record-ol{
   margin: 10px 0;
+  padding-inline-start: 10px; 
 }
 .record-ol li{
   padding: 4px 0;
-  font-size: 14px;
   color:#6a7955;
   word-wrap: break-word;
-}
-.record-ol li{
+  padding-inline-start: 10px;
   border-bottom: 1px dashed #d5f4db;
+}
+.record-label-input{
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #b1e4c1;
+  background: transparent;
+  font-size: 12px;
+  color: #4dc071;
+}
+.record-label-input::-webkit-input-placeholder{
+  font-size: 12px;
+  color: #93c4ba;
+}
+.record-label-input:hover{
+  border-bottom: 1px solid #7fd299;
+}
+.record-label-input:focus{
+  border-bottom: 1px solid #66c985;
+  outline: none;
 }
 .icon-delete{
   float: right;
   font-size: 16px;
   color: #d5e8e4;
   vertical-align: top;
-  cursor: pointer;
+  cursor: default;
 }
 .icon-delete:hover{
   color: #93c4ba;
@@ -58,11 +107,10 @@ a{
   color: #5ca698;
 }
 .icon-add-label{
-  font-size: 14px;
   color: #fff;
   background-color: #d5e8e4;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: default;
 }
 .icon-add-label:hover{
   background-color: #93c4ba;
@@ -70,18 +118,14 @@ a{
 .icon-add-label:active{
   background-color: #5ca698;
 }
-.label-item{
+/* .label-item{
   font-size: 12px;
   color: #93c4ba;
-}
-.label-list label{
-  padding: 0 4px;
-  font-size: 12px;
-  background-color: #7fe0ed;
-  color: #fff;
-  border-radius: 4px;
-}
+} */
 .footer{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   padding: 8px 0;
   text-align: center;
   color: #95a57e;
@@ -89,4 +133,42 @@ a{
 }
 .content-tip{
   color: #95a57e;
+}
+.login-wrap{
+  display: none;
+  margin: 20px 0;
+  text-align: center;
+}
+.input-text{
+  width: 80px;
+  padding: 6px 8px;
+  border: none;
+  border-bottom: 1px solid #4dc071;
+}
+.input-text:focus{
+  border-bottom: 1px solid #7fe0ed;
+  outline: none;
+}
+.input-button{ 
+  padding: 4px;
+  width: 50px;
+  outline: none;
+  border: none;
+  background: #4dc071;
+  color: #fff;
+  border-radius: 6px;
+}
+.input-button:hover{
+  background: #4cd55f;
+}
+.input-button:active{
+  background: #208a2f;
+}
+.login{
+  margin-left: 20px;
+}
+.error-tip{
+  display: none;
+  color: #f87f5d;
+  font-size: 10px;
 }

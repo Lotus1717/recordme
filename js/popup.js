@@ -100,8 +100,8 @@ document.getElementById('login').addEventListener('click', e => {
 
 function labelBlurFn (e) {
   let target = e.target
-  let labelText = target.value
-  pageRecord.tags = labelText.split(' ')
+  let labelText = target.value.trim()
+  pageRecord.tags = labelText.split(/\s+/)
 }
 
 // document.getElementById('delete_mark').addEventListener('click', e => {

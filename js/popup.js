@@ -66,8 +66,11 @@ chrome.tabs.query({active: true, currentWindow: true}, tabs =>{
 
 document.getElementById('save_record').addEventListener('click', e => {
   // 如果没有用户信息，则直接返回
-  if(!user){
+  if(!user || typeof pageRecord === 'undefined'){
     return
+  }
+  if(typeof pageRecord.tags === 'undefined'){
+    pageRecord.tags = []
   }
   let param = {
     data: pageRecord,

@@ -93,6 +93,13 @@
     }
   })
 
+    // 监听popup页面消息（打开新页面，跳转到recordme）
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+      if (request.cmd === 'goto-recordme') {
+        window.open('http://recordme.net.cn', '_blank')
+      }
+    })
+
   /** 
    * 从文档理获取文本节点 
    * @param [object] node [dom节点]
